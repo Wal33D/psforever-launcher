@@ -1,0 +1,19 @@
+<UserControl x:Class="PSForeverLauncher.Controls.FactionBadge"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:PSForeverLauncher.Converters">
+    <UserControl.Resources>
+        <converters:FactionToColorConverter x:Key="FactionToColorConverter" />
+    </UserControl.Resources>
+    <Border CornerRadius="3" Padding="8,3"
+            Background="{Binding Faction, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource FactionToColorConverter}}"
+            Opacity="0.85">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Binding Faction, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                       Foreground="White" FontSize="11" FontWeight="SemiBold"
+                       Margin="0,0,4,0" />
+            <TextBlock Text="{Binding Count, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                       Foreground="White" FontSize="11" Opacity="0.9" />
+        </StackPanel>
+    </Border>
+</UserControl>
